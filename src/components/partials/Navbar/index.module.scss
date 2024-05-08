@@ -1,0 +1,52 @@
+/* components/NavBar.module.css */
+.nav {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1000px;
+  padding: 20px 0;
+  opacity: 1; /* Ajoutez une opacité par défaut */
+  transition: opacity 0.3s ease; /* Ajoutez une transition pour l'opacité */
+
+  .navList {
+    width: 1000px;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    .navItem {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 240px;
+  right: 400px;
+  cursor: pointer;
+  font-size: 46px;
+  color: #000;
+  z-index: 999;
+}
+
+.animation {
+  opacity: 0; /* Initialisez l'opacité à 0 */
+  /* Ajoutez une transition pour l'opacité */
+}
+
+.animation.show {
+  opacity: 1; /* Lorsque la classe show est ajoutée, l'opacité est définie à 1 */
+  transition: opacity 6s ease;
+}
+
+.nav.hidden {
+  opacity: 0; /* Lorsque la classe hidden est ajoutée, l'opacité est réduite à 0 */
+}

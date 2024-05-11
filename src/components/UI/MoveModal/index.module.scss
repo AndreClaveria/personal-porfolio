@@ -9,8 +9,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0;
-
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.253);
   .imageContainer {
     display: flex;
 

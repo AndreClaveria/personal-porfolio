@@ -1,4 +1,5 @@
 import "@/assets/css/globals.scss";
+import Loading from "@/components/UI/Loading";
 import NavBar from "@/components/partials/Navbar";
 
 export const metadata = {
@@ -6,7 +7,7 @@ export const metadata = {
   description: "AAAAA",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, isLoading }) {
   return (
     <html lang="en">
       <body>

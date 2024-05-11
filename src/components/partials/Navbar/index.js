@@ -4,13 +4,19 @@ import Link from "next/link";
 import styles from "./index.module.scss";
 import ButtonNav from "@/components/UI/ButtonNav";
 import MoveModal from "@/components/UI/MoveModal";
+import TextBox from "@/components/UI/TextBox";
+import PresentBox from "@/components/UI/PresentBox";
 
 const NavBar = () => {
   const [focusedIndex, setFocusedIndex] = useState(0);
-  const [isDivVisible, setIsDivVisible] = useState(false);
+  const [isNavVisible, setNavVisible] = useState(false);
+  const [isTextBoxVisible, setTextBoxVisible] = useState(false);
   const [isMoveModalVisible, setIsMoveModalVisible] = useState(false);
+  const [isPresentBoxVisible, setIsPresentBoxVisible] = useState(false);
+  console.log("textbox : ", isTextBoxVisible);
   useEffect(() => {
     const handleKeyDown = (event) => {
+      console.log("Key pressed:", event.key);
       if (event.key === "ArrowRight" || event.key === "d") {
         setFocusedIndex((prevIndex) =>
           prevIndex < 3 ? prevIndex + 1 : prevIndex
@@ -20,6 +26,7 @@ const NavBar = () => {
           prevIndex > 0 ? prevIndex - 1 : prevIndex
         );
       } else if (event.key === " " || event.key === "Enter") {
+      } else if (event.key === "Escape") {
       }
     };
 
@@ -32,20 +39,12 @@ const NavBar = () => {
 
   const handleExamine = () => {
     console.log("Examiner");
-    return (
-      <div>
-        <h1>JAJAJA1</h1>
-      </div>
-    );
+    setNavVisible(true);
   };
 
   const handleTalk = () => {
     console.log("Parler");
-    return (
-      <div>
-        <h1>JAJAJA4</h1>
-      </div>
-    );
+    setTextBoxVisible(true);
   };
 
   const handleMove = () => {
@@ -55,11 +54,7 @@ const NavBar = () => {
 
   const handlePresent = () => {
     console.log("Présenter");
-    return (
-      <div>
-        <h1>JAJAJA2</h1>
-      </div>
-    );
+    setIsPresentBoxVisible(true);
   };
 
   const buttons = [
@@ -84,7 +79,11 @@ const NavBar = () => {
   return (
     <div>
       <nav
-        className={`${styles.nav} ${isMoveModalVisible ? styles.hidden : ""}`}>
+        className={`${styles.nav} ${isNavVisible ? styles.hidden : ""} ${
+          isMoveModalVisible ? styles.hidden : ""
+        } ${isTextBoxVisible ? styles.hidden : ""} ${
+          isPresentBoxVisible ? styles.hidden : ""
+        } ${isMoveModalVisible ? styles.hidden : ""}`}>
         <ul className={styles.navList}>
           {buttons.map((button, index) => (
             <li key={index} className={styles.navItem}>
@@ -98,6 +97,16 @@ const NavBar = () => {
           ))}
         </ul>
       </nav>
+
+      {isNavVisible && (
+        <div className={`${styles.animation} ${styles.show}`}>
+          <button
+            className={styles.closeButton}
+            onClick={() => setNavVisible(false)}>
+            X
+          </button>
+        </div>
+      )}
       {isMoveModalVisible && (
         <div className={`${styles.animation} ${styles.show}`}>
           <button
@@ -106,6 +115,26 @@ const NavBar = () => {
             X
           </button>
           <MoveModal />
+        </div>
+      )}
+      {isTextBoxVisible && (
+        <div className={`${styles.animation} ${styles.show}`}>
+          <button
+            className={styles.closeButton}
+            onClick={() => setTextBoxVisible(false)}>
+            X
+          </button>
+          <TextBox>HAHAHAH</TextBox>
+        </div>
+      )}
+      {isPresentBoxVisible && (
+        <div className={`${styles.animation} ${styles.show}`}>
+          <button
+            className={styles.closeButton}
+            onClick={() => setIsPresentBoxVisible(false)}>
+            X
+          </button>
+          <PresentBox />
         </div>
       )}
     </div>

@@ -1,0 +1,38 @@
+// components/TextBox.module.scss
+.container {
+  position: relative;
+  bottom: -650px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+}
+
+.nameholder {
+  position: absolute;
+  top: -40px; /* Ajustez cette valeur selon votre besoin */
+  left: 16.6%; /* Centrage horizontal */
+  transform: translateX(-50%);
+  background-color: #07348f; /* Couleur bleu */
+  color: #ffffff; /* Couleur du texte */
+  border: 2px solid #81674e; /* Bordure */
+  padding: 10px 60px; /* Marge intérieure */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.textBox {
+  background-color: #000000a9; /* Couleur de fond */
+  border: 2px solid #81674e; /* Bordure */
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 60px;
+  max-width: 75%;
+  margin: 20px auto;
+
+  .text {
+    color: #ffffff; /* Couleur du texte */
+    font-size: 24px; /* Taille de la police */
+  }
+}

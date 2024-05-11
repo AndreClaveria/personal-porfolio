@@ -1,5 +1,10 @@
+import Librairies from "@/components/UI/Librairies";
 import Image from "next/image";
 
 export default function Project() {
-  return <div>projet</div>;
+  return (
+    <div>
+      <Librairies />
+    </div>
+  );
 }

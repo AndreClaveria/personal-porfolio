@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "src": "/img/pixelatedCV.png",
+    "alt": "Image 1",
+    "title": "CV",
+    "lineOne": "C'est mon CV",
+    "lineTwo": "Il y a vraiment grand chose",
+    "lineThree": "mais ça grandira dans le temps"
+  },
+  {
+    "id": 2,
+    "src": "/img/pixelatedPP.png",
+    "alt": "Image 2",
+    "title": "Photo de moi",
+    "lineOne": "Une photo de moi",
+    "lineTwo": "J'ai 22 ans maintenant",
+    "lineThree": "Je suis né le 10 Mars"
+  }
+]

@@ -11,8 +11,8 @@ export default function RootLayout({ children, isLoading }) {
   return (
     <html lang="en">
       <body>
-        <NavBar />
         {children}
+        <NavBar />
       </body>
     </html>
   );

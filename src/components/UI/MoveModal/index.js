@@ -69,11 +69,11 @@ const MoveModal = () => {
         console.log("/img/room.png");
         return "/img/room.png";
       case "option2":
-        console.log("/img/Mt.Shivering.jpg");
-        return "/img/Mt.Shivering.jpg";
+        console.log("/img/street.png");
+        return "/img/street.png";
       case "option3":
-        console.log("/img/TeatanKingdom.jpg");
-        return "/img/TeatanKingdom.jpg";
+        console.log("/img/bookshelf.png");
+        return "/img/bookshelf.png";
       default:
         return "/img/room.png";
     }
@@ -93,17 +93,20 @@ const MoveModal = () => {
         <ul>
           <li
             onClick={() => handleOptionSelect("option1")}
-            className={selectedOption === "option1" ? styles.active : " "}>
+            className={selectedOption === "option1" ? styles.active : " "}
+          >
             Salon
           </li>
           <li
             onClick={() => handleOptionSelect("option2")}
-            className={selectedOption === "option2" ? styles.active : " "}>
+            className={selectedOption === "option2" ? styles.active : " "}
+          >
             Ruelle
           </li>
           <li
             onClick={() => handleOptionSelect("option3")}
-            className={selectedOption === "option3" ? styles.active : " "}>
+            className={selectedOption === "option3" ? styles.active : " "}
+          >
             Bibliothèque
           </li>
         </ul>

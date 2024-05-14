@@ -6,6 +6,7 @@ import ButtonNav from "@/components/UI/ButtonNav";
 import MoveModal from "@/components/UI/MoveModal";
 import TextBox from "@/components/UI/TextBox";
 import PresentBox from "@/components/UI/PresentBox";
+import { usePathname } from "next/navigation";
 
 const NavBar = () => {
   const [focusedIndex, setFocusedIndex] = useState(0);
@@ -13,6 +14,22 @@ const NavBar = () => {
   const [isTextBoxVisible, setTextBoxVisible] = useState(false);
   const [isMoveModalVisible, setIsMoveModalVisible] = useState(false);
   const [isPresentBoxVisible, setIsPresentBoxVisible] = useState(false);
+  const pathname = usePathname();
+  let textToShow = "";
+  const isActiveLink = (href) => {
+    return pathname.includes(href);
+  };
+
+  // Vérifiez l'URL actuelle et définissez le texte en conséquence
+  if (isActiveLink("/experiences")) {
+    textToShow =
+      "J'ai pris ce panneau publicitaire pour mettre toutes mes experiences!";
+  } else if (isActiveLink("/projects")) {
+    textToShow = "J'ai mis tous mes projets dans ma bibliothèque";
+  } else if (isActiveLink("/")) {
+    textToShow = "Voici ma maison";
+  }
+
   console.log("textbox : ", isTextBoxVisible);
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -83,7 +100,8 @@ const NavBar = () => {
           isMoveModalVisible ? styles.hidden : ""
         } ${isTextBoxVisible ? styles.hidden : ""} ${
           isPresentBoxVisible ? styles.hidden : ""
-        } ${isMoveModalVisible ? styles.hidden : ""}`}>
+        } ${isMoveModalVisible ? styles.hidden : ""}`}
+      >
         <ul className={styles.navList}>
           {buttons.map((button, index) => (
             <li key={index} className={styles.navItem}>
@@ -102,7 +120,8 @@ const NavBar = () => {
         <div className={`${styles.animation} ${styles.show}`}>
           <button
             className={styles.closeButton}
-            onClick={() => setNavVisible(false)}>
+            onClick={() => setNavVisible(false)}
+          >
             X
           </button>
         </div>
@@ -111,7 +130,8 @@ const NavBar = () => {
         <div className={`${styles.animation} ${styles.show}`}>
           <button
             className={styles.closeButton}
-            onClick={() => setIsMoveModalVisible(false)}>
+            onClick={() => setIsMoveModalVisible(false)}
+          >
             X
           </button>
           <MoveModal />
@@ -121,17 +141,19 @@ const NavBar = () => {
         <div className={`${styles.animation} ${styles.show}`}>
           <button
             className={styles.closeButton}
-            onClick={() => setTextBoxVisible(false)}>
+            onClick={() => setTextBoxVisible(false)}
+          >
             X
           </button>
-          <TextBox>HAHAHAH</TextBox>
+          <TextBox>{textToShow}</TextBox>
         </div>
       )}
       {isPresentBoxVisible && (
         <div className={`${styles.animation} ${styles.show}`}>
           <button
             className={styles.closeButton}
-            onClick={() => setIsPresentBoxVisible(false)}>
+            onClick={() => setIsPresentBoxVisible(false)}
+          >
             X
           </button>
           <PresentBox />

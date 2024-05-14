@@ -1,16 +1,16 @@
 // components/TextBox.module.scss
 .container {
-  position: relative;
-  bottom: -650px;
+  position: absolute;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 99;
+  z-index: 888;
 }
 
 .nameholder {
   position: absolute;
-  top: -40px; /* Ajustez cette valeur selon votre besoin */
-  left: 16.6%; /* Centrage horizontal */
+  top: -9%;
+  left: 8%; /* Centrage horizontal */
   transform: translateX(-50%);
   background-color: #07348f; /* Couleur bleu */
   color: #ffffff; /* Couleur du texte */
@@ -27,8 +27,8 @@
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  padding: 60px;
-  max-width: 75%;
+  padding: 60px 100px;
+  width: 1000px;
   margin: 20px auto;
 
   .text {

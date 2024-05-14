@@ -10,7 +10,8 @@
   justify-content: center;
   align-items: center;
   z-index: 99;
-  background-color: rgba(0, 0, 0, 0.253);
+
+  background-color: rgba(0, 0, 0, 0.671);
   .imageContainer {
     display: flex;
 
@@ -42,7 +43,7 @@
         padding: 20px;
         margin: 10%;
         border-radius: 5px;
-        background-color: rgba(255, 241, 241, 0.664);
+        background-color: rgba(255, 241, 241, 0.89);
         transition: background-color 0.3s ease;
 
         &.active {
